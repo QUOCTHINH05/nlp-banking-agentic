@@ -1,0 +1,5 @@
+# ignore all files in the venv directory and _pycache__ directories
+__pycache__/
+venv/
+*.safetensors
+*.bin
