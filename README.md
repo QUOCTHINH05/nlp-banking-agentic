@@ -1,5 +1,11 @@
 # Banking AI Agent
-
+## Student information:
+- Student ID: 23120089
+- Full name: Đỗ Quốc Thịnh
+- Class: 23_22
+- Subject: Project 3, Aplications of Natural Language Processing in Industry
+- Assitance Teacher: Mr Lê Đức Khoan
+- Lecturer: Dr Nguyễn Hồng Bửu Long
 ## Objective
 
 A simple AI agentic workflow for customer support in the banking domain.  
@@ -115,8 +121,8 @@ Here, I suggest running on Collab and then we use Pinggy to provides a public UR
 intent_service.proto
 ```
 - Then go to Google Drive, ``drive/MyDrive``, and upload the folder ``model`` to this place to save my banking intent classification model from Lab 2.
-- Then, run the 4th cell to mount to Drive
-- Finally, run the last cell to run the ``server.py``, and here our server for intent node is ready to listen to client's request
+- Then, run the 4th cell to mount to Drive.
+- Finally, run the last cell to run the ``server.py``, and here our server for intent node is ready to listen to client's request.
 - Lastly, we need to run this command in terminal of Collab to get the Pinggy link, Pinggy will provide a public URL for a service running on localhost.
 ```bash
 # Open tunnel TCP through Pinggy (use prefix tcp@)
@@ -128,16 +134,16 @@ ssh -o "StrictHostKeyChecking=no" -p 443 -R0:localhost:50051 tcp@a.pinggy.io
 ### Step 3: Run the LLM ``gpt-oss:20b``
 I suggest that running this LLM on another Google Collab account, with accelerator **T4 GPU**
 - Firstly, upload the file `Ollama_Pinggy.ipynb`. 
-- This file has 4 cell, run cell 1 and 2 to pull the model ``gpt-oss:20b``
+- This file has 4 cells, run cell 1 and 2 to pull the model ``gpt-oss:20b``
 - Cell 3 is an instruction to get the Pinggy link. Run this in the terminal of Collab
 ```bash
 ssh -p 443 -R0:localhost:11434 qr@a.pinggy.io
 ```
-- After that, we will see a http link, copy this link and paste to the link on cell 4th. Note that the link url on cell 4th must have the end point **/api/chat**
+- After that, we will see a http link, copy this link and paste to the link on cell 4th. Note that the link url on cell 4th must have the end point **/api/chat**. Cell 4th is to test the model.
 - We also have to use this Pinggy link to paste to the ``OLLAMA_BASE_URL`` of file ``settings.py``
 
 ### Step 4: Run the application
-Now every is well-prepared. 
+Now everything is well-prepared. 
 - First, we start the entry point for running the application on ``run.py``. Open a new terminal in VSCode, navigate to folder ``banking-agentic``, then run:
 ```bash
 cd banking-agentic
