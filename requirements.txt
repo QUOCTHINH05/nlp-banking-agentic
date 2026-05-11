@@ -5,6 +5,7 @@ uvicorn==0.27.1
 # gRPC for Client (Connect Intent Service)
 grpcio==1.62.1
 grpcio-tools==1.62.1
+protobuf==4.25.3
 
 # HTTP Client (Call Ollama API)
 requests==2.31.0
