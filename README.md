@@ -3,7 +3,7 @@
 - Student ID: 23120089
 - Full name: Đỗ Quốc Thịnh
 - Class: 23_22
-- Subject: Project 3, Aplications of Natural Language Processing in Industry
+- Subject: Project 3, Applications of Natural Language Processing in Industry
 - Assitance Teacher: Mr Lê Đức Khoan
 - Lecturer: Dr Nguyễn Hồng Bửu Long
 ## Objective
@@ -17,7 +17,7 @@ The system receives a customer message, identifies the intent, retrieves relevan
 Customer Message
       │
       ▼
-Intent Detection Node  (Call fine-tuned model from Lab 2)
+Intent Detection Node  (call fine-tuned model from Lab 2)
       │
       ▼
 Priority Assessment Node  (include Low, Medium and High)
@@ -162,4 +162,4 @@ streamlit run frontend.py
 
 ## Video Demo
 
-*[Link to be added after recording]*
+[DemoVideo](https://drive.google.com/file/d/1-EHg8N0rTD6H4JZ8nvFsNwjslPHae_AR/view?usp=drive_link)
