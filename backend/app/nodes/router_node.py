@@ -23,7 +23,7 @@ class RouterNode:
         if priority == "high":
             return RouterResult(
                 action="escalate",
-                reason="High-priority issue requires human review.",
+                reason="High-priority issue requires human review. Please contact our support team directly through phone or live chat for immediate assistance. I will directly escalate this issue to our support team to ensure it is addressed as quickly as possible.",
             )
 
         if missing_info:
