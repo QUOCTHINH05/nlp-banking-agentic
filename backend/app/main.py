@@ -25,4 +25,5 @@ async def run_agent_endpoint(request: AgentRequest):
         "intent": result.trace.get("intent", {}).get("intent"),
         "confidence": result.trace.get("intent", {}).get("confidence"),
         "reason": result.trace.get("intent", {}).get("reason"),
+        "action": result.trace.get("routing", {}).get("action"),
     }
