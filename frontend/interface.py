@@ -24,14 +24,27 @@ if prompt := st.chat_input("How can I help you today?"):
         
         try:
             response = requests.post(
-                "http://localhost:8000/chat",
+                "http://localhost:8000/run-agent",
                 json={"message": prompt},
                 timeout=120 
             )
             
             if response.status_code == 200:
-                full_response = response.json().get("response", "I'm sorry, I couldn't generate a response.")
+                result = response.json()
+                full_response = result.get("response", "I'm sorry, I couldn't generate a response.")
                 message_placeholder.markdown(full_response)
+                
+                # Display trace information
+                if result.get("intent"):
+                    st.divider()
+                    col1, col2, col3 = st.columns(3)
+                    with col1:
+                        st.metric("Intent", result.get("intent", "Unknown"))
+                    with col2:
+                        confidence = result.get("confidence", 0)
+                        st.metric("Confidence", f"{confidence:.2%}")
+                    with col3:
+                        st.metric("Status", result.get("action", "Unknown").replace("_", " ").title())
                 # Lưu vào lịch sử
                 st.session_state.messages.append({"role": "assistant", "content": full_response})
             else:
