@@ -31,7 +31,12 @@ class DraftNode:
             f"Policy: {policy}\n\n"
             "Draft a reply:"
         )
-        draft = self.client.chat(system=SYSTEM_PROMPT, user=user_prompt)
+        
+        try:
+            draft = self.client.chat(system=SYSTEM_PROMPT, user=user_prompt)
+        except Exception as e:
+            print(f"[DraftNode] Error calling Ollama: {e}")
+            draft = f"[LLM ERROR] Failed to draft response: {str(e)[:100]}"
 
         missing = None
         if intent == "transfer_failure" and "reference" not in message.lower():
