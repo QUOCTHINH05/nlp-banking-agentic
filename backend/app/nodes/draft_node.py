@@ -2,9 +2,9 @@
 Response Drafting Node.
 Calls Ollama to generate a customer-facing reply grounded in the retrieved policy.
 """
-from backend.app.clients.ollama_client import OllamaClient
-from backend.app.core.settings import settings
-from backend.app.core.schemas import DraftResult
+from app.clients.ollama_client import OllamaClient
+from app.core.settings import settings
+from app.core.schemas import DraftResult
 
 SYSTEM_PROMPT = """You are a helpful banking customer support agent.
 Draft a polite, concise reply to the customer based on:

@@ -2,7 +2,7 @@
 Router / Escalation Node.
 Final decision: send reply | ask for more info | escalate to human.
 """
-from backend.app.core.schemas import RouterResult
+from app.core.schemas import RouterResult
 
 
 class RouterNode:

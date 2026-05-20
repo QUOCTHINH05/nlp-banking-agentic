@@ -1,6 +1,6 @@
 import requests
 import logging
-from backend.app.core.settings import settings
+from app.core.settings import settings
 
 logger = logging.getLogger(__name__)
 

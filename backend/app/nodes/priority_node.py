@@ -16,5 +16,5 @@ class PriorityNode:
     def run(self, message: str, intent: str): 
         priority = self.priority_map.get(intent, "Medium")
         print(f"[PriorityNode] Intent: {intent} -> Priority: {priority}")
-        from backend.app.core.schemas import PriorityResult
+        from app.core.schemas import PriorityResult
         return PriorityResult(priority=priority.lower(), reason="Mapped from intent")

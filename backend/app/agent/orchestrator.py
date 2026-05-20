@@ -2,13 +2,13 @@
 Orchestrator — main agentic pipeline controller.
 Calls all nodes in order and collects intermediate trace.
 """
-from backend.app.nodes.intent_node import IntentNode
-from backend.app.nodes.priority_node import PriorityNode
-from backend.app.nodes.policy_node import PolicyNode
-from backend.app.nodes.draft_node import DraftNode
-from backend.app.nodes.validation_node import ValidationNode
-from backend.app.nodes.router_node import RouterNode
-from backend.app.core.schemas import AgentResponse
+from app.nodes.intent_node import IntentNode
+from app.nodes.priority_node import PriorityNode
+from app.nodes.policy_node import PolicyNode
+from app.nodes.draft_node import DraftNode
+from app.nodes.validation_node import ValidationNode
+from app.nodes.router_node import RouterNode
+from app.core.schemas import AgentResponse
 
 
 class BankingOrchestrator:
@@ -60,13 +60,14 @@ class BankingOrchestrator:
             suggested_action=draft_result.suggested_action,
         )
         trace["routing"] = router_result.model_dump()
+        
+        # Build final response based on router action
         if router_result.action == "escalate":
-            reply = f"{draft_result.draft}\n\n(Hệ thống: Yêu cầu này đã được chuyển đến nhân viên hỗ trợ)."
+            reply = None
+            escalation_reason = router_result.reason
         else:
             reply = draft_result.draft
-        # Build final response
-        reply = draft_result.draft if router_result.action in ("send_reply", "ask_more_info") else None
-        escalation_reason = router_result.reason if router_result.action == "escalate" else None
+            escalation_reason = None
 
         return AgentResponse(
             action=router_result.action,

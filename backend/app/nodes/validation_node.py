@@ -2,7 +2,7 @@
 Validation Node.
 Checks whether the generated draft response is acceptable before sending.
 """
-from backend.app.core.schemas import ValidationResult
+from app.core.schemas import ValidationResult
 
 
 MIN_DRAFT_LENGTH = 30

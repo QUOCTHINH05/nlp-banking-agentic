@@ -1,5 +1,5 @@
-from backend.app.data.policies import POLICIES, DEFAULT_POLICY
-from backend.app.core.schemas import PolicyResult
+from app.data.policies import POLICIES, DEFAULT_POLICY
+from app.core.schemas import PolicyResult
 
 class PolicyNode:
     def __init__(self):
