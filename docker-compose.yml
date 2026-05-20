@@ -1,0 +1,18 @@
+# docker-compose.yml (skeleton)
+services:
+  intent-service:
+    build: ./intent_service
+    ports: ["50051:50051"]
+
+  api-gateway:
+    build: ./backend
+    ports: ["8000:8000"]
+    environment:
+      - INTENT_SERVICE_URL=intent-service:50051
+      - OLLAMA_BASE_URL=http://host.docker.internal:11434
+    depends_on: [intent-service]
+
+  frontend:
+    build: ./frontend
+    ports: ["8501:8501"]
+    depends_on: [api-gateway]
